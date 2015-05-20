@@ -12,6 +12,7 @@ class CarListViewController: UITableViewController {
 
     var cars = [String]() //empty array of strings
     var newCar: String = "" //string requires filling
+
     
     @IBAction func cancel(segue:UIStoryboardSegue) {
         tableView.reloadData()
@@ -42,13 +43,14 @@ class CarListViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-
+    
+    //There is only one section in the Table View so we need to return a 1 in the numberOfSectionsTableView method.
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
         return 1
     }
-
+    //The number of rows is equal to the number of items in the cars array so we use the count method of the array class
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
@@ -60,6 +62,7 @@ class CarListViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("carCell", forIndexPath: indexPath) as! UITableViewCell
 
         cell.textLabel!.text = cars[indexPath.row]
+        
         return cell
     }
 
@@ -97,6 +100,7 @@ class CarListViewController: UITableViewController {
         cars.removeAtIndex(toIndexPath.row)
         cars.insert(fromCar, atIndex: toIndexPath.row)
         //println(fromIndexPath.row)
+        
         
     }
 

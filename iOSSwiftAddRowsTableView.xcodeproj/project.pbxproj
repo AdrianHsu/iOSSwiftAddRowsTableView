@@ -15,6 +15,7 @@
 		7FDB010F1B0C715700E0FCA0 /* iOSSwiftAddRowsTableViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDB010E1B0C715700E0FCA0 /* iOSSwiftAddRowsTableViewTests.swift */; };
 		7FDB011C1B0C75D400E0FCA0 /* CarListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDB011B1B0C75D400E0FCA0 /* CarListViewController.swift */; };
 		7FDB011E1B0C785700E0FCA0 /* CarDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDB011D1B0C785700E0FCA0 /* CarDetailViewController.swift */; };
+		7FDB01221B0CA00000E0FCA0 /* car01.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7FDB01211B0CA00000E0FCA0 /* car01.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		7FDB010E1B0C715700E0FCA0 /* iOSSwiftAddRowsTableViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSSwiftAddRowsTableViewTests.swift; sourceTree = "<group>"; };
 		7FDB011B1B0C75D400E0FCA0 /* CarListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarListViewController.swift; sourceTree = "<group>"; };
 		7FDB011D1B0C785700E0FCA0 /* CarDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarDetailViewController.swift; sourceTree = "<group>"; };
+		7FDB01211B0CA00000E0FCA0 /* car01.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = car01.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 				7FDB00FC1B0C715700E0FCA0 /* Main.storyboard */,
 				7FDB011D1B0C785700E0FCA0 /* CarDetailViewController.swift */,
 				7FDB00FF1B0C715700E0FCA0 /* Images.xcassets */,
+				7FDB01211B0CA00000E0FCA0 /* car01.jpg */,
 				7FDB01011B0C715700E0FCA0 /* LaunchScreen.xib */,
 				7FDB00F71B0C715700E0FCA0 /* iOSSwiftAddRowsTableView.xcdatamodeld */,
 				7FDB00F31B0C715700E0FCA0 /* Supporting Files */,
@@ -201,6 +204,7 @@
 				7FDB00FE1B0C715700E0FCA0 /* Main.storyboard in Resources */,
 				7FDB01031B0C715700E0FCA0 /* LaunchScreen.xib in Resources */,
 				7FDB01001B0C715700E0FCA0 /* Images.xcassets in Resources */,
+				7FDB01221B0CA00000E0FCA0 /* car01.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

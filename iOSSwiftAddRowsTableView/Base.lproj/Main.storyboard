@@ -83,7 +83,7 @@
                             <constraint firstAttribute="centerY" secondItem="fdN-Yp-R0T" secondAttribute="centerY" id="oaV-7P-oe3"/>
                         </constraints>
                     </view>
-                    <splitViewMasterSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="carName" destination="fdN-Yp-R0T" id="5rc-9H-cEw"/>
                     </connections>
