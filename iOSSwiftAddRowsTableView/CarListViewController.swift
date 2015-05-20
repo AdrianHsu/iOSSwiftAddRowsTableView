@@ -13,7 +13,7 @@ import CoreData
 
 class CarListViewController: UITableViewController {
 
-    var cars = [String]() //empty array of strings
+    var cars = [Car]() //empty array of Strings
     var newCar: String = "" //string requires filling
     var tmpImage = UIImageView( image: UIImage(named: "car1.jpg"))
     var carImages: [UIImage] = [
@@ -30,16 +30,30 @@ class CarListViewController: UITableViewController {
     }
     @IBAction func done(segue:UIStoryboardSegue) {
         var carDetailVC = segue.sourceViewController as! CarDetailViewController
+        var name = carDetailVC.name
         
-        newCar = carDetailVC.name
-        cars.append(newCar)
-        tableView.reloadData()
+        if (name == "")
+        {
+            var alert = UIAlertController(title: "", message: "Please fill in your car name", preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: nil))
+            presentViewController(alert, animated: true, completion: nil)
+        }
+        else {
+            // save context into Sqlite using Core Data
+                
+            // get context
+            var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            var context = appDelegate.managedObjectContext!
+                
+            // create entity
+            var car = NSEntityDescription.insertNewObjectForEntityForName("Car", inManagedObjectContext: context) as! Car
+            car.name = name
+            appDelegate.saveContext()
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        cars = ["BMW","Audi","Volkswagen"]
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -47,23 +61,27 @@ class CarListViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
         self.navigationItem.leftBarButtonItem?.tintColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1)
-        
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let managedContext = appDelegate.managedObjectContext
-        let entity = NSEntityDescription.entityForName("User", inManagedObjectContext: managedContext!)
-        
-        var Users = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext)
-        Users.setValue(1, forKey:"id")
-        Users.setValue("leoyeh", forKey:"name")
-        let fetchRequest = NSFetchRequest(entityName: "User")
-        let fetchedResults = managedContext?.executeFetchRequest(fetchRequest, error: nil) as! [NSManagedObject]?
-        if let results = fetchedResults {
-            for var n = 0; n < results.count; n++ {
-                println(results[n].valueForKey("id") as! IntegerLiteralType)
-                println(results[n].valueForKey("name") as! String)
-            }
-        }
+        loadData()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "didSave", name: NSManagedObjectContextDidSaveNotification, object: nil)
+    }
 
+    func loadData() {
+
+        var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        var context = appDelegate.managedObjectContext!
+        var fetch = NSFetchRequest(entityName: "Car")
+        var error: NSError?
+        var request = context.executeFetchRequest(fetch, error: &error)
+        
+        if let result = request {
+            self.cars = result as! [(Car)]
+            self.tableView.reloadData()
+        }
+    }
+    func didSave() {
+        println("NSManagedObjectContextDidSaveNotification")
+        
+        loadData()
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -84,46 +102,40 @@ class CarListViewController: UITableViewController {
         // Return the number of rows in the section.
         return cars.count
     }
-
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("carCell", forIndexPath: indexPath) as! UITableViewCell
 
+        //var car = self.cars[indexPath.row] as! Car
 
-        
         cell.textLabel!.font = UIFont(name: "Avenir Next", size: 24)
         cell.textLabel!.textColor = UIColor(red: 255, green: 255, blue: 255, alpha: 0.4)
-        if(cars[indexPath.row] == "BMW")
+        
+        cell.textLabel!.text = cars[indexPath.row].name
+        
+        if(cars[indexPath.row].name == "BMW")
         {
-            cell.textLabel!.text = cars[indexPath.row]
             cell.imageView?.image = carImages[0]
         }
-        else if(cars[indexPath.row] == "Audi")
+        else if(cars[indexPath.row].name == "Audi")
         {
-            cell.textLabel!.text = cars[indexPath.row]
             cell.imageView?.image = carImages[1]
         }
-        else if(cars[indexPath.row] == "Volkswagen")
+        else if(cars[indexPath.row].name == "Volkswagen")
         {
-            cell.textLabel!.text = cars[indexPath.row]
             cell.imageView?.image = carImages[2]
         }
-        else if(cars[indexPath.row] == "Benz")
+        else if(cars[indexPath.row].name == "Benz")
         {
-            cell.textLabel!.text = cars[indexPath.row]
             cell.imageView?.image = carImages[3]
         }
         else
         {
-            cell.textLabel!.text = cars[indexPath.row]
             cell.imageView?.image = carImages[4]
         }
         
         return cell
     }
-
-
-    
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return NO if you do not want the specified item to be editable.
@@ -134,19 +146,28 @@ class CarListViewController: UITableViewController {
     heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
     {
         //let tmp = self.tableView.frame.width * (tmpImage.image!.size.height  / tmpImage.image!.size.width )
+            
         let tmp = self.tableView.frame.width * (tmpImage.image!.size.height  / tmpImage.image!.size.width ) / 2
-        return tmp;
+        return tmp
     }
     
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             // Delete the row from the data source
+            
+            var car = self.cars[indexPath.row] as Car
+            var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            var context = appDelegate.managedObjectContext!
+            context.deleteObject(car)
             cars.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
+            appDelegate.saveContext()
+            
+        }
+        /*else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }*/
     }
 
 
@@ -154,15 +175,13 @@ class CarListViewController: UITableViewController {
     // Override to support rearranging the table view.
     override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
         
-        var fromCar: String = cars[fromIndexPath.row]
-        var toCar: String = cars[toIndexPath.row]
+        var fromCar = cars[fromIndexPath.row]
+        var toCar = cars[toIndexPath.row]
         
         cars.removeAtIndex(fromIndexPath.row)
         cars.insert(toCar, atIndex: fromIndexPath.row)
         cars.removeAtIndex(toIndexPath.row)
         cars.insert(fromCar, atIndex: toIndexPath.row)
-        //println(fromIndexPath.row)
-        
         
     }
 

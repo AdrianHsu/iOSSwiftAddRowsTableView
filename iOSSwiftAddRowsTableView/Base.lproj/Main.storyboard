@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="S3Q-J5-Jjq">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Cars-->
@@ -63,8 +64,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <navigationBar contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EI3-au-fUc">
-                                <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EI3-au-fUc">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                 <items>
                                     <navigationItem title="Add Car" id="M5Z-6F-Qcg">
                                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="zl7-5d-m0s">
@@ -84,9 +85,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="fdN-Yp-R0T" firstAttribute="leading" secondItem="L7k-1l-Xcf" secondAttribute="leading" constant="20" id="8o3-iV-G86"/>
+                            <constraint firstItem="EI3-au-fUc" firstAttribute="top" secondItem="L7k-1l-Xcf" secondAttribute="topMargin" id="AOA-4s-31v"/>
                             <constraint firstAttribute="trailing" secondItem="fdN-Yp-R0T" secondAttribute="trailing" constant="20" id="CT3-qK-AMM"/>
                             <constraint firstItem="EI3-au-fUc" firstAttribute="leading" secondItem="L7k-1l-Xcf" secondAttribute="leading" id="Ja9-6g-0Q1"/>
-                            <constraint firstItem="EI3-au-fUc" firstAttribute="top" secondItem="hjp-dK-TFc" secondAttribute="bottom" id="OWt-It-ubb"/>
                             <constraint firstAttribute="trailing" secondItem="EI3-au-fUc" secondAttribute="trailing" id="Yv0-N1-Da9"/>
                             <constraint firstAttribute="centerY" secondItem="fdN-Yp-R0T" secondAttribute="centerY" id="oaV-7P-oe3"/>
                         </constraints>

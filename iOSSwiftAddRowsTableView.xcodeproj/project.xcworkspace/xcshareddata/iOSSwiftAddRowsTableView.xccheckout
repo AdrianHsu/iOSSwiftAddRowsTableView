@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>B4800EB3-3935-4C1E-BDF1-F29A9D1A619A</string>
 	<key>IDESourceControlProjectName</key>
-	<string>iOSSwiftAddRowsTableView</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>BE783999217233F4927F22052498581507F10384</key>
 		<string>https://github.com/AdrianHsu/iOSSwiftAddRowsTableView.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>iOSSwiftAddRowsTableView.xcodeproj</string>
+	<string>iOSSwiftAddRowsTableView.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>BE783999217233F4927F22052498581507F10384</key>
