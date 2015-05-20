@@ -1,3 +1,4 @@
+
 //
 //  CarListTableViewController.swift
 //  iOSSwiftAddRowsTableView
@@ -7,6 +8,7 @@
 //
 
 import UIKit
+import CoreData
 
 
 class CarListViewController: UITableViewController {
@@ -21,6 +23,7 @@ class CarListViewController: UITableViewController {
         UIImage(named: "car4.jpg")!,
         UIImage(named: "car5.jpg")!,
     ]
+
     
     @IBAction func cancel(segue:UIStoryboardSegue) {
         tableView.reloadData()
@@ -43,6 +46,24 @@ class CarListViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
+        self.navigationItem.leftBarButtonItem?.tintColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1)
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let managedContext = appDelegate.managedObjectContext
+        let entity = NSEntityDescription.entityForName("User", inManagedObjectContext: managedContext!)
+        
+        var Users = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext)
+        Users.setValue(1, forKey:"id")
+        Users.setValue("leoyeh", forKey:"name")
+        let fetchRequest = NSFetchRequest(entityName: "User")
+        let fetchedResults = managedContext?.executeFetchRequest(fetchRequest, error: nil) as! [NSManagedObject]?
+        if let results = fetchedResults {
+            for var n = 0; n < results.count; n++ {
+                println(results[n].valueForKey("id") as! IntegerLiteralType)
+                println(results[n].valueForKey("name") as! String)
+            }
+        }
+
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -68,6 +89,8 @@ class CarListViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("carCell", forIndexPath: indexPath) as! UITableViewCell
 
+
+        
         cell.textLabel!.font = UIFont(name: "Avenir Next", size: 24)
         cell.textLabel!.textColor = UIColor(red: 255, green: 255, blue: 255, alpha: 0.4)
         if(cars[indexPath.row] == "BMW")
@@ -88,12 +111,12 @@ class CarListViewController: UITableViewController {
         else if(cars[indexPath.row] == "Benz")
         {
             cell.textLabel!.text = cars[indexPath.row]
-            cell.imageView?.image = carImages[4]
+            cell.imageView?.image = carImages[3]
         }
         else
         {
             cell.textLabel!.text = cars[indexPath.row]
-            cell.imageView?.image = carImages[5]
+            cell.imageView?.image = carImages[4]
         }
         
         return cell

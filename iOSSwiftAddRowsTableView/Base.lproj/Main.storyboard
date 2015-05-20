@@ -34,6 +34,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Cars" id="Tl5-na-ZPG">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="cYm-aZ-N8i">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="pe9-IO-k9A" kind="modal" modalPresentationStyle="fullScreen" modalTransitionStyle="partialCurl" id="nTt-kw-SO3"/>
                             </connections>
