@@ -32,24 +32,16 @@ class CarListViewController: UITableViewController {
         var carDetailVC = segue.sourceViewController as! CarDetailViewController
         var name = carDetailVC.name
         
-        if (name == "")
-        {
-            var alert = UIAlertController(title: "", message: "Please fill in your car name", preferredStyle: .Alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: nil))
-            presentViewController(alert, animated: true, completion: nil)
-        }
-        else {
-            // save context into Sqlite using Core Data
+        // save context into Sqlite using Core Data
+        // get context
+        var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        var context = appDelegate.managedObjectContext!
                 
-            // get context
-            var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-            var context = appDelegate.managedObjectContext!
-                
-            // create entity
-            var car = NSEntityDescription.insertNewObjectForEntityForName("Car", inManagedObjectContext: context) as! Car
-            car.name = name
-            appDelegate.saveContext()
-        }
+        // create entity
+        var car = NSEntityDescription.insertNewObjectForEntityForName("Car", inManagedObjectContext: context) as! Car
+        car.name = name
+        appDelegate.saveContext()
+
     }
     
     override func viewDidLoad() {
@@ -180,6 +172,7 @@ class CarListViewController: UITableViewController {
         cars.insert(toCar, atIndex: fromIndexPath.row)
         cars.removeAtIndex(toIndexPath.row)
         cars.insert(fromCar, atIndex: toIndexPath.row)
+
         
     }
     /*
