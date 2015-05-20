@@ -80,7 +80,6 @@ class CarListViewController: UITableViewController {
     }
     func didSave() {
         println("NSManagedObjectContextDidSaveNotification")
-        
         loadData()
     }
     override func didReceiveMemoryWarning() {
@@ -175,17 +174,14 @@ class CarListViewController: UITableViewController {
     // Override to support rearranging the table view.
     override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
         
-        var fromCar = cars[fromIndexPath.row]
-        var toCar = cars[toIndexPath.row]
-        
+        var fromCar = cars[fromIndexPath.row] as Car
+        var toCar = cars[toIndexPath.row] as Car
         cars.removeAtIndex(fromIndexPath.row)
         cars.insert(toCar, atIndex: fromIndexPath.row)
         cars.removeAtIndex(toIndexPath.row)
         cars.insert(fromCar, atIndex: toIndexPath.row)
         
     }
-
-
     /*
     // Override to support conditional rearranging of the table view.
     override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
