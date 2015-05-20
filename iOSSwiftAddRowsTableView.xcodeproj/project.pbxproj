@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7FACEEA91B0CBD6C0065675D /* car1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7FACEEA41B0CBD6C0065675D /* car1.jpg */; };
+		7FACEEAA1B0CBD6C0065675D /* car2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7FACEEA51B0CBD6C0065675D /* car2.jpg */; };
+		7FACEEAB1B0CBD6C0065675D /* car3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7FACEEA61B0CBD6C0065675D /* car3.jpg */; };
+		7FACEEAC1B0CBD6C0065675D /* car4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7FACEEA71B0CBD6C0065675D /* car4.jpg */; };
+		7FACEEAD1B0CBD6C0065675D /* car5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7FACEEA81B0CBD6C0065675D /* car5.jpg */; };
 		7FDB00F61B0C715700E0FCA0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDB00F51B0C715700E0FCA0 /* AppDelegate.swift */; };
 		7FDB00F91B0C715700E0FCA0 /* iOSSwiftAddRowsTableView.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7FDB00F71B0C715700E0FCA0 /* iOSSwiftAddRowsTableView.xcdatamodeld */; };
 		7FDB00FE1B0C715700E0FCA0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FDB00FC1B0C715700E0FCA0 /* Main.storyboard */; };
@@ -15,7 +20,6 @@
 		7FDB010F1B0C715700E0FCA0 /* iOSSwiftAddRowsTableViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDB010E1B0C715700E0FCA0 /* iOSSwiftAddRowsTableViewTests.swift */; };
 		7FDB011C1B0C75D400E0FCA0 /* CarListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDB011B1B0C75D400E0FCA0 /* CarListViewController.swift */; };
 		7FDB011E1B0C785700E0FCA0 /* CarDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDB011D1B0C785700E0FCA0 /* CarDetailViewController.swift */; };
-		7FDB01221B0CA00000E0FCA0 /* car01.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7FDB01211B0CA00000E0FCA0 /* car01.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +33,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7FACEEA41B0CBD6C0065675D /* car1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = car1.jpg; sourceTree = "<group>"; };
+		7FACEEA51B0CBD6C0065675D /* car2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = car2.jpg; sourceTree = "<group>"; };
+		7FACEEA61B0CBD6C0065675D /* car3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = car3.jpg; sourceTree = "<group>"; };
+		7FACEEA71B0CBD6C0065675D /* car4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = car4.jpg; sourceTree = "<group>"; };
+		7FACEEA81B0CBD6C0065675D /* car5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = car5.jpg; sourceTree = "<group>"; };
 		7FDB00F01B0C715700E0FCA0 /* iOSSwiftAddRowsTableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSSwiftAddRowsTableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FDB00F41B0C715700E0FCA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7FDB00F51B0C715700E0FCA0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -41,7 +50,6 @@
 		7FDB010E1B0C715700E0FCA0 /* iOSSwiftAddRowsTableViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSSwiftAddRowsTableViewTests.swift; sourceTree = "<group>"; };
 		7FDB011B1B0C75D400E0FCA0 /* CarListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarListViewController.swift; sourceTree = "<group>"; };
 		7FDB011D1B0C785700E0FCA0 /* CarDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarDetailViewController.swift; sourceTree = "<group>"; };
-		7FDB01211B0CA00000E0FCA0 /* car01.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = car01.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,7 +96,11 @@
 				7FDB00FC1B0C715700E0FCA0 /* Main.storyboard */,
 				7FDB011D1B0C785700E0FCA0 /* CarDetailViewController.swift */,
 				7FDB00FF1B0C715700E0FCA0 /* Images.xcassets */,
-				7FDB01211B0CA00000E0FCA0 /* car01.jpg */,
+				7FACEEA41B0CBD6C0065675D /* car1.jpg */,
+				7FACEEA51B0CBD6C0065675D /* car2.jpg */,
+				7FACEEA61B0CBD6C0065675D /* car3.jpg */,
+				7FACEEA71B0CBD6C0065675D /* car4.jpg */,
+				7FACEEA81B0CBD6C0065675D /* car5.jpg */,
 				7FDB01011B0C715700E0FCA0 /* LaunchScreen.xib */,
 				7FDB00F71B0C715700E0FCA0 /* iOSSwiftAddRowsTableView.xcdatamodeld */,
 				7FDB00F31B0C715700E0FCA0 /* Supporting Files */,
@@ -202,9 +214,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				7FDB00FE1B0C715700E0FCA0 /* Main.storyboard in Resources */,
+				7FACEEAA1B0CBD6C0065675D /* car2.jpg in Resources */,
+				7FACEEAD1B0CBD6C0065675D /* car5.jpg in Resources */,
 				7FDB01031B0C715700E0FCA0 /* LaunchScreen.xib in Resources */,
+				7FACEEAC1B0CBD6C0065675D /* car4.jpg in Resources */,
+				7FACEEA91B0CBD6C0065675D /* car1.jpg in Resources */,
+				7FACEEAB1B0CBD6C0065675D /* car3.jpg in Resources */,
 				7FDB01001B0C715700E0FCA0 /* Images.xcassets in Resources */,
-				7FDB01221B0CA00000E0FCA0 /* car01.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

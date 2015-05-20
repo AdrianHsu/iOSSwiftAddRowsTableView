@@ -8,16 +8,23 @@
 
 import UIKit
 
+
 class CarListViewController: UITableViewController {
 
     var cars = [String]() //empty array of strings
     var newCar: String = "" //string requires filling
-
+    var tmpImage = UIImageView( image: UIImage(named: "car1.jpg"))
+    var carImages: [UIImage] = [
+        UIImage(named: "car1.jpg")!,
+        UIImage(named: "car2.jpg")!,
+        UIImage(named: "car3.jpg")!,
+        UIImage(named: "car4.jpg")!,
+        UIImage(named: "car5.jpg")!,
+    ]
     
     @IBAction func cancel(segue:UIStoryboardSegue) {
         tableView.reloadData()
     }
-    
     @IBAction func done(segue:UIStoryboardSegue) {
         var carDetailVC = segue.sourceViewController as! CarDetailViewController
         
@@ -30,13 +37,13 @@ class CarListViewController: UITableViewController {
         super.viewDidLoad()
 
         cars = ["BMW","Audi","Volkswagen"]
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
     }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -61,7 +68,31 @@ class CarListViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("carCell", forIndexPath: indexPath) as! UITableViewCell
 
-        cell.textLabel!.text = cars[indexPath.row]
+        if(cars[indexPath.row] == "BMW")
+        {
+            cell.textLabel!.text = cars[indexPath.row]
+            cell.imageView?.image = carImages[0]
+        }
+        else if(cars[indexPath.row] == "Audi")
+        {
+            cell.textLabel!.text = cars[indexPath.row]
+            cell.imageView?.image = carImages[1]
+        }
+        else if(cars[indexPath.row] == "Volkswagen")
+        {
+            cell.textLabel!.text = cars[indexPath.row]
+            cell.imageView?.image = carImages[2]
+        }
+        else if(cars[indexPath.row] == "Benz")
+        {
+            cell.textLabel!.text = cars[indexPath.row]
+            cell.imageView?.image = carImages[4]
+        }
+        else
+        {
+            cell.textLabel!.text = cars[indexPath.row]
+            cell.imageView?.image = carImages[5]
+        }
         
         return cell
     }
@@ -74,7 +105,13 @@ class CarListViewController: UITableViewController {
         return true
     }
     
-
+    override func tableView(tableView: UITableView,
+    heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
+    {
+        //let tmp = self.tableView.frame.width * (tmpImage.image!.size.height  / tmpImage.image!.size.width )
+        let tmp = self.tableView.frame.width * (tmpImage.image!.size.height  / tmpImage.image!.size.width ) / 2
+        return tmp;
+    }
     
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
