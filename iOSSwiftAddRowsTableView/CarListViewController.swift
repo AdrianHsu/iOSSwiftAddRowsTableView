@@ -68,6 +68,8 @@ class CarListViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("carCell", forIndexPath: indexPath) as! UITableViewCell
 
+        cell.textLabel!.font = UIFont(name: "Avenir Next", size: 24)
+        cell.textLabel!.textColor = UIColor(red: 255, green: 255, blue: 255, alpha: 0.4)
         if(cars[indexPath.row] == "BMW")
         {
             cell.textLabel!.text = cars[indexPath.row]
